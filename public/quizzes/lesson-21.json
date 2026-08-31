@@ -1,0 +1,66 @@
+{
+  "id": "quiz-lesson-21",
+  "lessonId": "lesson-21",
+  "title": "Authentication Patterns",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What is the difference between authentication and authorization?",
+      "options": [
+        { "id": "a", "text": "Authentication verifies who you are; authorization verifies what you may do" },
+        { "id": "b", "text": "They are two words for the same check" },
+        { "id": "c", "text": "Authentication is client-side; authorization is always in CSS" },
+        { "id": "d", "text": "Authorization happens before authentication" }
+      ],
+      "answer": "a",
+      "explanation": "Authentication establishes identity; authorization checks permissions. You authenticate first, then authorize each sensitive action."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "Which cookie attribute prevents JavaScript from reading the session cookie? Type it.",
+      "answer": ["httpOnly", "HttpOnly", "http-only"],
+      "explanation": "httpOnly makes a cookie unreadable to client JavaScript, protecting the session token from XSS theft."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "Which are sound App Router auth practices? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "Enforce checks in a Data Access Layer near the data" },
+        { "id": "b", "text": "Authorize inside Server Actions and Route Handlers" },
+        { "id": "c", "text": "Rely on a middleware redirect as the only protection" },
+        { "id": "d", "text": "Use httpOnly, secure, sameSite session cookies" }
+      ],
+      "answer": ["a", "b", "d"],
+      "explanation": "Enforce near the data, authorize in public endpoints, and secure the cookie. Middleware alone is a coarse, bypassable gate."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each term to its description.",
+      "pairs": [
+        { "left": "Stateless session", "right": "Signed/encrypted token (JWT) in a cookie" },
+        { "left": "Database session", "right": "Session ID in a cookie mapping to a DB record" },
+        { "left": "Data Access Layer", "right": "Server functions that check auth near data" },
+        { "left": "Middleware auth", "right": "Optimistic redirect, not the sole guard" }
+      ],
+      "explanation": "Sessions can be stateless tokens or DB-backed; a DAL centralizes checks; middleware is only an optimistic gate."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order a typical login-to-protected-page flow.",
+      "items": [
+        { "id": "s1", "text": "User logs in and the server verifies credentials" },
+        { "id": "s2", "text": "The server sets an httpOnly session cookie" },
+        { "id": "s3", "text": "On a later request, the DAL reads and verifies the session" },
+        { "id": "s4", "text": "If valid, the protected data is returned; otherwise redirect to login" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "Login verifies identity and sets a secure cookie; later, the DAL verifies the session before returning protected data."
+    }
+  ]
+}

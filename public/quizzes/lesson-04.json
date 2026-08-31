@@ -1,0 +1,78 @@
+{
+  "id": "quiz-lesson-04",
+  "lessonId": "lesson-04",
+  "title": "Layouts and Nested Layouts",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What must the root layout (app/layout.tsx) render that nested layouts do not?",
+      "options": [
+        { "id": "a", "text": "The <html> and <body> tags" },
+        { "id": "b", "text": "A <head> tag with all metadata" },
+        { "id": "c", "text": "A default export named RootLayout" },
+        { "id": "d", "text": "A route.ts file" }
+      ],
+      "answer": "a",
+      "explanation": "The root layout is the document shell, so it must render <html> and <body>. Nested layouts may omit them."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "Which prop does a layout render to show the nested page or layout inside it?",
+      "answer": ["children", "{children}"],
+      "explanation": "Layouts receive a children prop and must render it; that is where the nested content appears."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "You navigate between /dashboard and /dashboard/settings, which share a dashboard layout. What happens to that layout?",
+      "options": [
+        { "id": "a", "text": "It stays mounted and does not re-render, preserving its state" },
+        { "id": "b", "text": "It fully re-mounts on each navigation" },
+        { "id": "c", "text": "It is removed and the page renders alone" },
+        { "id": "d", "text": "It reloads the whole browser page" }
+      ],
+      "answer": "a",
+      "explanation": "Shared layouts persist across navigation between their child routes — only the changed segment re-renders, so layout state is preserved."
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "prompt": "Which statements about layouts are true? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "A layout.tsx wraps its segment and everything nested under it" },
+        { "id": "b", "text": "Layouts are Server Components by default" },
+        { "id": "c", "text": "You can freely use useState in a layout without any directive" },
+        { "id": "d", "text": "template.tsx re-mounts on every navigation" }
+      ],
+      "answer": ["a", "b", "d"],
+      "explanation": "Layouts wrap nested segments, are Server Components by default, and templates re-mount per navigation. useState requires a Client Component (\"use client\")."
+    },
+    {
+      "id": "q5",
+      "type": "match-pair",
+      "prompt": "Match each file to its role.",
+      "pairs": [
+        { "left": "app/layout.tsx", "right": "Root layout: renders <html>/<body>, wraps every page" },
+        { "left": "app/dashboard/layout.tsx", "right": "Section layout: wraps only /dashboard and its children" },
+        { "left": "template.tsx", "right": "Like a layout but re-mounts on each navigation" },
+        { "left": "page.tsx", "right": "The UI for a single route" }
+      ],
+      "explanation": "The root layout is the document shell; a nested layout scopes shared UI to a section; a template re-mounts per navigation; a page renders one route."
+    },
+    {
+      "id": "q6",
+      "type": "ordering",
+      "prompt": "Order these layers from outermost to innermost when rendering /dashboard/settings.",
+      "items": [
+        { "id": "s1", "text": "Root layout (app/layout.tsx)" },
+        { "id": "s2", "text": "Dashboard layout (app/dashboard/layout.tsx)" },
+        { "id": "s3", "text": "The settings page (app/dashboard/settings/page.tsx)" }
+      ],
+      "answer": ["s1", "s2", "s3"],
+      "explanation": "Layouts nest from the root down: the root layout wraps the dashboard layout, which wraps the settings page via its children."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "quiz-lesson-02",
+  "lessonId": "lesson-02",
+  "title": "Creating a Next.js App",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What is the official way to scaffold a new Next.js project?",
+      "options": [
+        { "id": "a", "text": "npx create-next-app@latest my-app" },
+        { "id": "b", "text": "npm install next-app" },
+        { "id": "c", "text": "git clone next.js my-app" },
+        { "id": "d", "text": "next new my-app" }
+      ],
+      "answer": "a",
+      "explanation": "create-next-app is the official CLI. Running it with npx downloads and runs it without a global install."
+    },
+    {
+      "id": "q2",
+      "type": "match-pair",
+      "prompt": "Match each npm script to what it does.",
+      "pairs": [
+        { "left": "npm run dev", "right": "Starts the development server with Fast Refresh" },
+        { "left": "npm run build", "right": "Creates the optimized production output" },
+        { "left": "npm run start", "right": "Serves the built output in production mode" }
+      ],
+      "explanation": "dev is for everyday development, build produces the production output, and start serves that output in production mode."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "On what port does the Next.js dev server run by default? Type just the number.",
+      "answer": ["3000"],
+      "explanation": "next dev serves your app at http://localhost:3000 by default."
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "prompt": "Which statements about a default App Router project are true? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "The app/ folder holds your routes and components" },
+        { "id": "b", "text": "Files in public/ are served from the site root, like /logo.png" },
+        { "id": "c", "text": "You should commit node_modules to Git" },
+        { "id": "d", "text": "next.config.ts configures the framework" }
+      ],
+      "answer": ["a", "b", "d"],
+      "explanation": "app/ holds your code, public/ serves static files from the root, and next.config.ts configures Next.js. node_modules is generated and is gitignored by default."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Put the steps to create and run a new project in order.",
+      "items": [
+        { "id": "s1", "text": "Run npx create-next-app@latest my-app" },
+        { "id": "s2", "text": "cd my-app" },
+        { "id": "s3", "text": "Run npm run dev" },
+        { "id": "s4", "text": "Open http://localhost:3000 and edit app/page.tsx" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "Scaffold, enter the folder, start the dev server, then open the browser and start editing."
+    }
+  ]
+}

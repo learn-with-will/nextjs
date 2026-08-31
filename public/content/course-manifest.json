@@ -1,0 +1,410 @@
+[
+  {
+    "id": "lesson-01",
+    "slug": "what-is-nextjs",
+    "title": "What Is Next.js?",
+    "level": "beginner",
+    "order": 1,
+    "duration": 18,
+    "file": "beginner/what-is-nextjs.md",
+    "summary": "Understand what Next.js is—a full-stack React framework—why it exists, and how the App Router renders components on the server by default.",
+    "tags": [
+      "nextjs",
+      "react",
+      "app-router",
+      "framework",
+      "fundamentals"
+    ]
+  },
+  {
+    "id": "lesson-02",
+    "slug": "creating-a-nextjs-app",
+    "title": "Creating a Next.js App",
+    "level": "beginner",
+    "order": 2,
+    "duration": 20,
+    "file": "beginner/creating-a-nextjs-app.md",
+    "summary": "Scaffold a new project with create-next-app, tour the files it generates, and run the development server to see live changes.",
+    "tags": [
+      "create-next-app",
+      "project-structure",
+      "cli",
+      "setup",
+      "dev-server"
+    ]
+  },
+  {
+    "id": "lesson-03",
+    "slug": "pages-and-file-based-routing",
+    "title": "Pages and File-Based Routing",
+    "level": "beginner",
+    "order": 3,
+    "duration": 22,
+    "file": "beginner/pages-and-file-based-routing.md",
+    "summary": "Learn how folders and page.tsx files in the app/ directory map directly to your application's URLs, including nested routes.",
+    "tags": [
+      "routing",
+      "pages",
+      "app-router",
+      "file-based-routing",
+      "segments"
+    ]
+  },
+  {
+    "id": "lesson-04",
+    "slug": "layouts-and-nested-layouts",
+    "title": "Layouts and Nested Layouts",
+    "level": "beginner",
+    "order": 4,
+    "duration": 24,
+    "file": "beginner/layouts-and-nested-layouts.md",
+    "summary": "Use layout.tsx to share UI like navigation across pages, and nest layouts so each section of your app can add its own wrapper.",
+    "tags": [
+      "layouts",
+      "nested-layouts",
+      "root-layout",
+      "app-router",
+      "children"
+    ]
+  },
+  {
+    "id": "lesson-05",
+    "slug": "linking-and-navigation",
+    "title": "Linking and Navigation",
+    "level": "beginner",
+    "order": 5,
+    "duration": 20,
+    "file": "beginner/linking-and-navigation.md",
+    "summary": "Move between routes with the Link component for fast client-side navigation, and navigate programmatically with the useRouter hook.",
+    "tags": [
+      "navigation",
+      "next-link",
+      "use-router",
+      "client-navigation",
+      "prefetching"
+    ]
+  },
+  {
+    "id": "lesson-06",
+    "slug": "server-and-client-components",
+    "title": "Server and Client Components",
+    "level": "beginner",
+    "order": 6,
+    "duration": 26,
+    "file": "beginner/server-and-client-components.md",
+    "summary": "Understand the App Router's biggest idea: components render on the server by default, and you opt into the browser with the 'use client' directive.",
+    "tags": [
+      "server-components",
+      "client-components",
+      "use-client",
+      "rendering",
+      "boundaries"
+    ]
+  },
+  {
+    "id": "lesson-07",
+    "slug": "styling-your-app",
+    "title": "Styling Your App",
+    "level": "beginner",
+    "order": 7,
+    "duration": 20,
+    "file": "beginner/styling-your-app.md",
+    "summary": "Compare Next.js's built-in styling options—global CSS, CSS Modules, Tailwind, and inline styles—and know when to reach for each.",
+    "tags": [
+      "styling",
+      "css-modules",
+      "global-css",
+      "tailwind",
+      "css"
+    ]
+  },
+  {
+    "id": "lesson-08",
+    "slug": "images-fonts-and-assets",
+    "title": "Images, Fonts, and Static Assets",
+    "level": "beginner",
+    "order": 8,
+    "duration": 22,
+    "file": "beginner/images-fonts-and-assets.md",
+    "summary": "Use next/image and next/font to serve optimized images and self-hosted fonts, and learn how the public/ folder serves static files.",
+    "tags": [
+      "next-image",
+      "next-font",
+      "static-assets",
+      "optimization",
+      "public"
+    ]
+  },
+  {
+    "id": "lesson-09",
+    "slug": "dynamic-routes",
+    "title": "Dynamic Routes and Route Params",
+    "level": "intermediate",
+    "order": 9,
+    "duration": 24,
+    "file": "intermediate/dynamic-routes.md",
+    "summary": "Create routes with dynamic segments like [id], read the (async) params in Next.js 15, and pre-render them with generateStaticParams.",
+    "tags": [
+      "dynamic-routes",
+      "params",
+      "generate-static-params",
+      "catch-all",
+      "segments"
+    ]
+  },
+  {
+    "id": "lesson-10",
+    "slug": "fetching-data",
+    "title": "Fetching Data in Server Components",
+    "level": "intermediate",
+    "order": 10,
+    "duration": 24,
+    "file": "intermediate/fetching-data.md",
+    "summary": "Fetch data directly inside async Server Components with await—no useEffect—and avoid waterfalls by loading independent data in parallel.",
+    "tags": [
+      "data-fetching",
+      "fetch",
+      "async-components",
+      "server-components",
+      "promises"
+    ]
+  },
+  {
+    "id": "lesson-11",
+    "slug": "rendering-strategies",
+    "title": "Rendering Strategies: Static and Dynamic",
+    "level": "intermediate",
+    "order": 11,
+    "duration": 24,
+    "file": "intermediate/rendering-strategies.md",
+    "summary": "Learn how Next.js chooses between static rendering (at build time) and dynamic rendering (per request), and how to control it.",
+    "tags": [
+      "rendering",
+      "static-rendering",
+      "dynamic-rendering",
+      "ssg",
+      "ssr"
+    ]
+  },
+  {
+    "id": "lesson-12",
+    "slug": "caching-and-revalidation",
+    "title": "Caching and Revalidation",
+    "level": "intermediate",
+    "order": 12,
+    "duration": 26,
+    "file": "intermediate/caching-and-revalidation.md",
+    "summary": "Control data freshness with fetch caching options and revalidation—time-based (ISR) and on-demand with revalidatePath and revalidateTag.",
+    "tags": [
+      "caching",
+      "revalidation",
+      "isr",
+      "fetch-cache",
+      "revalidate-path"
+    ]
+  },
+  {
+    "id": "lesson-13",
+    "slug": "loading-ui-and-streaming",
+    "title": "Loading UI and Streaming",
+    "level": "intermediate",
+    "order": 13,
+    "duration": 22,
+    "file": "intermediate/loading-ui-and-streaming.md",
+    "summary": "Show instant loading states with loading.tsx and stream slow parts of a page independently using React Suspense boundaries.",
+    "tags": [
+      "loading",
+      "streaming",
+      "suspense",
+      "loading-tsx",
+      "user-experience"
+    ]
+  },
+  {
+    "id": "lesson-14",
+    "slug": "error-handling",
+    "title": "Error Handling",
+    "level": "intermediate",
+    "order": 14,
+    "duration": 22,
+    "file": "intermediate/error-handling.md",
+    "summary": "Catch runtime errors per route with error.tsx (a Client Component with reset), and show 404s with not-found.tsx and the notFound() function.",
+    "tags": [
+      "error-handling",
+      "error-tsx",
+      "not-found",
+      "error-boundary",
+      "reset"
+    ]
+  },
+  {
+    "id": "lesson-15",
+    "slug": "route-handlers",
+    "title": "Route Handlers and APIs",
+    "level": "intermediate",
+    "order": 15,
+    "duration": 24,
+    "file": "intermediate/route-handlers.md",
+    "summary": "Build API endpoints inside your app with route.ts files that export HTTP method handlers and return Response objects.",
+    "tags": [
+      "route-handlers",
+      "api",
+      "request",
+      "response",
+      "http-methods"
+    ]
+  },
+  {
+    "id": "lesson-16",
+    "slug": "metadata-and-seo",
+    "title": "Metadata and SEO",
+    "level": "intermediate",
+    "order": 16,
+    "duration": 22,
+    "file": "intermediate/metadata-and-seo.md",
+    "summary": "Set page titles, descriptions, and social-share tags with the Metadata API—static via the metadata export and dynamic via generateMetadata.",
+    "tags": [
+      "metadata",
+      "seo",
+      "generate-metadata",
+      "open-graph",
+      "title-template"
+    ]
+  },
+  {
+    "id": "lesson-17",
+    "slug": "server-actions",
+    "title": "Server Actions and Mutations",
+    "level": "advanced",
+    "order": 17,
+    "duration": 26,
+    "file": "advanced/server-actions.md",
+    "summary": "Run server-side mutations directly from your components with Server Actions—async functions marked 'use server' that handle forms and refresh data.",
+    "tags": [
+      "server-actions",
+      "use-server",
+      "mutations",
+      "forms",
+      "revalidate-path"
+    ]
+  },
+  {
+    "id": "lesson-18",
+    "slug": "forms-and-optimistic-ui",
+    "title": "Forms, useActionState, and Optimistic UI",
+    "level": "advanced",
+    "order": 18,
+    "duration": 26,
+    "file": "advanced/forms-and-optimistic-ui.md",
+    "summary": "Add rich form UX to Server Actions with React 19 hooks: useActionState for results and errors, useFormStatus for pending state, and useOptimistic for instant feedback.",
+    "tags": [
+      "use-action-state",
+      "use-form-status",
+      "use-optimistic",
+      "forms",
+      "pending-ui"
+    ]
+  },
+  {
+    "id": "lesson-19",
+    "slug": "middleware",
+    "title": "Middleware",
+    "level": "advanced",
+    "order": 19,
+    "duration": 22,
+    "file": "advanced/middleware.md",
+    "summary": "Run code before a request is completed with middleware.ts—redirect, rewrite, or add headers—and scope it to specific paths with a matcher.",
+    "tags": [
+      "middleware",
+      "matcher",
+      "redirects",
+      "rewrites",
+      "edge"
+    ]
+  },
+  {
+    "id": "lesson-20",
+    "slug": "parallel-and-intercepting-routes",
+    "title": "Parallel and Intercepting Routes",
+    "level": "advanced",
+    "order": 20,
+    "duration": 24,
+    "file": "advanced/parallel-and-intercepting-routes.md",
+    "summary": "Render multiple pages in one layout with parallel routes (@slots), and load a route in the current context with intercepting routes—the classic modal pattern.",
+    "tags": [
+      "parallel-routes",
+      "intercepting-routes",
+      "slots",
+      "modals",
+      "advanced-routing"
+    ]
+  },
+  {
+    "id": "lesson-21",
+    "slug": "authentication-patterns",
+    "title": "Authentication Patterns",
+    "level": "advanced",
+    "order": 21,
+    "duration": 26,
+    "file": "advanced/authentication-patterns.md",
+    "summary": "Understand authentication vs authorization, session strategies with secure cookies, and where to enforce access checks in the App Router.",
+    "tags": [
+      "authentication",
+      "authorization",
+      "sessions",
+      "cookies",
+      "data-access-layer"
+    ]
+  },
+  {
+    "id": "lesson-22",
+    "slug": "the-caching-model-in-depth",
+    "title": "The Caching Model in Depth",
+    "level": "advanced",
+    "order": 22,
+    "duration": 26,
+    "file": "advanced/the-caching-model-in-depth.md",
+    "summary": "Understand Next.js's four caching layers—Request Memoization, Data Cache, Full Route Cache, and the client Router Cache—and how each is invalidated.",
+    "tags": [
+      "caching",
+      "data-cache",
+      "full-route-cache",
+      "router-cache",
+      "request-memoization"
+    ]
+  },
+  {
+    "id": "lesson-23",
+    "slug": "performance-optimization",
+    "title": "Performance and Optimization",
+    "level": "advanced",
+    "order": 23,
+    "duration": 24,
+    "file": "advanced/performance-optimization.md",
+    "summary": "Ship less JavaScript and improve Core Web Vitals with Server Components, dynamic imports, image/font optimization, and next/script.",
+    "tags": [
+      "performance",
+      "code-splitting",
+      "dynamic-import",
+      "core-web-vitals",
+      "bundle-size"
+    ]
+  },
+  {
+    "id": "lesson-24",
+    "slug": "deploying-to-production",
+    "title": "Deploying to Production",
+    "level": "advanced",
+    "order": 24,
+    "duration": 24,
+    "file": "advanced/deploying-to-production.md",
+    "summary": "Ship a Next.js app: compare Vercel, Node self-hosting, and static export, handle environment variables, and know each target's trade-offs.",
+    "tags": [
+      "deployment",
+      "static-export",
+      "vercel",
+      "self-hosting",
+      "environment-variables"
+    ]
+  }
+]

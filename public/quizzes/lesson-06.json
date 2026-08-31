@@ -1,0 +1,79 @@
+{
+  "id": "quiz-lesson-06",
+  "lessonId": "lesson-06",
+  "title": "Server and Client Components",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "How do you turn a component into a Client Component?",
+      "options": [
+        { "id": "a", "text": "Put the directive \"use client\" as the first line of its file" },
+        { "id": "b", "text": "Export it from a file named client.tsx" },
+        { "id": "c", "text": "Wrap it in <Client> tags" },
+        { "id": "d", "text": "Add clientComponent: true to next.config.ts" }
+      ],
+      "answer": "a",
+      "explanation": "The \"use client\" directive at the top of a file marks the client boundary; that file and its imports become Client Components."
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "prompt": "Which are true of Server Components? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "They can await data directly" },
+        { "id": "b", "text": "They can read server-only secrets" },
+        { "id": "c", "text": "They can use useState and onClick" },
+        { "id": "d", "text": "They ship no JavaScript to the browser" }
+      ],
+      "answer": ["a", "b", "d"],
+      "explanation": "Server Components fetch data, use secrets, and ship no JS. State and event handlers require a Client Component."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "A Client Component cannot import a Server Component, but it can render one passed to it as this prop. Name the prop.",
+      "answer": ["children"],
+      "explanation": "Passing a Server Component as children (a slot) lets server content live inside a client shell without the client importing it."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "You need one interactive button on an otherwise static, data-fetching page. What's the best structure?",
+      "options": [
+        { "id": "a", "text": "Keep the page a Server Component and make only the button a Client Component" },
+        { "id": "b", "text": "Add \"use client\" to the whole page" },
+        { "id": "c", "text": "Fetch the data in a useEffect on the client" },
+        { "id": "d", "text": "Move everything into next.config.ts" }
+      ],
+      "answer": "a",
+      "explanation": "Keep the page on the server (for data fetching and less JS) and push only the interactive button to the client."
+    },
+    {
+      "id": "q5",
+      "type": "match-pair",
+      "prompt": "Match each capability to where it belongs.",
+      "pairs": [
+        { "left": "await fetch(...) inside the component", "right": "Server Component" },
+        { "left": "useState / onClick", "right": "Client Component" },
+        { "left": "Reading an API secret key", "right": "Server Component" },
+        { "left": "Using window or localStorage", "right": "Client Component" }
+      ],
+      "explanation": "Data fetching and secrets belong on the server; state, events, and browser APIs belong in Client Components."
+    },
+    {
+      "id": "q6",
+      "type": "ordering",
+      "prompt": "Order how a page with a Client Component becomes interactive.",
+      "items": [
+        { "id": "s1", "text": "Server Components render to HTML on the server" },
+        { "id": "s2", "text": "The HTML is sent to the browser and displayed" },
+        { "id": "s3", "text": "The Client Component's JavaScript loads" },
+        { "id": "s4", "text": "Hydration attaches interactivity to that component" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "The server renders HTML first; then the Client Component's JS loads and hydration wires up its interactivity."
+    }
+  ]
+}

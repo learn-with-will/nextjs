@@ -1,0 +1,78 @@
+{
+  "id": "quiz-lesson-09",
+  "lessonId": "lesson-09",
+  "title": "Dynamic Routes and Route Params",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "In Next.js 15, how do you read params inside a page component?",
+      "options": [
+        { "id": "a", "text": "Make the component async and await params (it's a Promise)" },
+        { "id": "b", "text": "Read params.id synchronously — it's a plain object" },
+        { "id": "c", "text": "Call getStaticPaths() to get it" },
+        { "id": "d", "text": "Import params from next/navigation" }
+      ],
+      "answer": "a",
+      "explanation": "In Next.js 15, params is a Promise. Make the component async and do `const { id } = await params`."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "Which exported function pre-renders dynamic pages at build time (replacing getStaticPaths)? Type its name.",
+      "answer": ["generateStaticParams"],
+      "explanation": "generateStaticParams returns the list of params to pre-render; it is the App Router replacement for getStaticPaths."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "For app/docs/[...slug]/page.tsx, what is the type of params.slug?",
+      "options": [
+        { "id": "a", "text": "string[] — an array of path segments" },
+        { "id": "b", "text": "string — the whole path as one string" },
+        { "id": "c", "text": "number" },
+        { "id": "d", "text": "boolean" }
+      ],
+      "answer": "a",
+      "explanation": "A catch-all [...slug] matches one or more segments, so params.slug is a string array."
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "prompt": "Which statements are correct? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "[id] matches a single segment" },
+        { "id": "b", "text": "[[...slug]] also matches the parent route" },
+        { "id": "c", "text": "notFound() renders the nearest not-found.tsx" },
+        { "id": "d", "text": "getStaticPaths is the App Router way to list params" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "[id] is one segment, optional catch-all matches the parent too, and notFound() shows not-found.tsx. generateStaticParams (not getStaticPaths) is the App Router function."
+    },
+    {
+      "id": "q5",
+      "type": "match-pair",
+      "prompt": "Match each folder pattern to what it matches.",
+      "pairs": [
+        { "left": "[id]", "right": "Exactly one segment" },
+        { "left": "[...slug]", "right": "One or more segments (array)" },
+        { "left": "[[...slug]]", "right": "Zero or more, including the parent" },
+        { "left": "generateStaticParams", "right": "Pre-render listed params at build" }
+      ],
+      "explanation": "Single, catch-all, and optional catch-all differ in how many segments they match; generateStaticParams pre-renders the listed values."
+    },
+    {
+      "id": "q6",
+      "type": "ordering",
+      "prompt": "Order how a pre-rendered dynamic blog post is served.",
+      "items": [
+        { "id": "s1", "text": "generateStaticParams returns the list of slugs at build time" },
+        { "id": "s2", "text": "Next.js pre-renders one static page per slug" },
+        { "id": "s3", "text": "A request for /blog/my-post is served the matching static HTML" }
+      ],
+      "answer": ["s1", "s2", "s3"],
+      "explanation": "generateStaticParams lists the slugs, Next.js builds a static page for each, and requests are served the pre-rendered HTML."
+    }
+  ]
+}

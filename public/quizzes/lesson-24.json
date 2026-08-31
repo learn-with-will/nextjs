@@ -1,0 +1,66 @@
+{
+  "id": "quiz-lesson-24",
+  "lessonId": "lesson-24",
+  "title": "Deploying to Production",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "Which deployment target does NOT support Server Actions, dynamic Route Handlers, or middleware?",
+      "options": [
+        { "id": "a", "text": "A static export (output: 'export')" },
+        { "id": "b", "text": "Vercel (managed)" },
+        { "id": "c", "text": "A Node server via next start" },
+        { "id": "d", "text": "Docker running next start" }
+      ],
+      "answer": "a",
+      "explanation": "A static export has no running server, so request-time features (SSR-on-request, Server Actions, dynamic Route Handlers, middleware) don't work."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "What prefix exposes an environment variable to the browser? Type it (including the underscore).",
+      "answer": ["NEXT_PUBLIC_", "NEXT_PUBLIC"],
+      "explanation": "Only variables prefixed with NEXT_PUBLIC_ are exposed to the client; all others remain server-only."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "Which are true about a static export? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "It emits static files you can host on GitHub Pages or S3" },
+        { "id": "b", "text": "Images need images: { unoptimized: true }" },
+        { "id": "c", "text": "Dynamic routes must provide generateStaticParams" },
+        { "id": "d", "text": "Server Actions run at request time" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "A static export is static-only: hostable anywhere, images unoptimized, dynamic routes pre-rendered via generateStaticParams. Server Actions need a server."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each deployment target to its characteristic.",
+      "pairs": [
+        { "left": "Vercel (managed)", "right": "All features, zero-config" },
+        { "left": "Node self-host", "right": "All features, you run the server" },
+        { "left": "Static export", "right": "Static-only, any static host" },
+        { "left": "basePath", "right": "Config for hosting under a sub-path" }
+      ],
+      "explanation": "Vercel and Node self-hosting support the full feature set; a static export is static-only; basePath handles sub-path hosting."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order the steps to ship a static export to a sub-path static host.",
+      "items": [
+        { "id": "s1", "text": "Set output: 'export', basePath, and images.unoptimized in next.config" },
+        { "id": "s2", "text": "Run next build to generate static files" },
+        { "id": "s3", "text": "Upload the generated output to the static host" },
+        { "id": "s4", "text": "Visit the sub-path URL and verify links/assets resolve" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "Configure the export and base path, build the static output, deploy it, and verify the sub-path routing works."
+    }
+  ]
+}

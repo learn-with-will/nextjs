@@ -1,0 +1,66 @@
+{
+  "id": "quiz-lesson-17",
+  "lessonId": "lesson-17",
+  "title": "Server Actions and Mutations",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What makes a function a Server Action?",
+      "options": [
+        { "id": "a", "text": "The \"use server\" directive on the function or its module, and it being async" },
+        { "id": "b", "text": "Naming the file action.ts" },
+        { "id": "c", "text": "Wrapping it in useEffect" },
+        { "id": "d", "text": "Exporting it from a Client Component" }
+      ],
+      "answer": "a",
+      "explanation": "A Server Action is an async function marked \"use server\" (inline or at the top of a module)."
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "prompt": "Which statements about Server Actions are true? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "They run only on the server and can use secrets/database" },
+        { "id": "b", "text": "A form's action prop can call one, receiving FormData" },
+        { "id": "c", "text": "Their arguments and return values must be serializable" },
+        { "id": "d", "text": "They automatically refresh cached UI with no extra code" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Actions are server-only, callable via <form action>, and must be serializable. You must call revalidatePath/revalidateTag to refresh cached UI."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "Type the exact directive string that marks a Server Action.",
+      "answer": ["use server", "\"use server\"", "'use server'"],
+      "explanation": "\"use server\" marks a function or module as containing Server Actions."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each piece to its role in a Server Action.",
+      "pairs": [
+        { "left": "<form action={fn}>", "right": "Runs the action on submit" },
+        { "left": "formData.get('text')", "right": "Reads a submitted field" },
+        { "left": "revalidatePath('/todos')", "right": "Refreshes the cached UI" },
+        { "left": "redirect('/done')", "right": "Sends the user to another page" }
+      ],
+      "explanation": "The form triggers the action, FormData carries the input, revalidatePath refreshes data, and redirect navigates afterward."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order what happens when a form backed by a Server Action is submitted.",
+      "items": [
+        { "id": "s1", "text": "The user submits the form" },
+        { "id": "s2", "text": "Next.js runs the Server Action on the server with the FormData" },
+        { "id": "s3", "text": "The action mutates data and calls revalidatePath" },
+        { "id": "s4", "text": "The affected UI re-renders with fresh data" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "Submitting runs the action server-side; it mutates and revalidates, so the UI updates with the new data."
+    }
+  ]
+}

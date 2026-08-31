@@ -1,0 +1,78 @@
+{
+  "id": "quiz-lesson-08",
+  "lessonId": "lesson-08",
+  "title": "Images, Fonts, and Static Assets",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "What does next/image do automatically? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "Serves appropriately sized images in modern formats" },
+        { "id": "b", "text": "Lazy-loads off-screen images" },
+        { "id": "c", "text": "Reserves space to prevent layout shift" },
+        { "id": "d", "text": "Removes the need for an alt attribute" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "next/image optimizes size/format, lazy-loads, and reserves space. It still requires a meaningful alt for accessibility."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "For a remote (URL) image with next/image, what must you provide that a local import supplies automatically?",
+      "options": [
+        { "id": "a", "text": "The width and height" },
+        { "id": "b", "text": "A \"use client\" directive" },
+        { "id": "c", "text": "A CSS Module" },
+        { "id": "d", "text": "Nothing — remote images need no extra info" }
+      ],
+      "answer": "a",
+      "explanation": "Next.js can't read a remote image's intrinsic size, so you pass width and height (or use fill) and allow the domain in images.remotePatterns."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "Which module self-hosts fonts at build time with no layout shift? Type the import path (e.g. next/x...).",
+      "answer": ["next/font", "next/font/google"],
+      "explanation": "next/font (e.g. next/font/google) downloads and self-hosts fonts at build time and reserves space to avoid layout shift."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "A file at public/brochure.pdf is served at which URL?",
+      "options": [
+        { "id": "a", "text": "/brochure.pdf" },
+        { "id": "b", "text": "/public/brochure.pdf" },
+        { "id": "c", "text": "/app/brochure.pdf" },
+        { "id": "d", "text": "/static/brochure.pdf" }
+      ],
+      "answer": "a",
+      "explanation": "Files in public/ are served as-is from the site root, so public/brochure.pdf is available at /brochure.pdf."
+    },
+    {
+      "id": "q5",
+      "type": "match-pair",
+      "prompt": "Match each need to the right tool.",
+      "pairs": [
+        { "left": "Optimized photos", "right": "next/image" },
+        { "left": "Self-hosted web fonts", "right": "next/font" },
+        { "left": "favicon.ico / robots.txt", "right": "public/ folder" },
+        { "left": "Images in a static export", "right": "images: { unoptimized: true }" }
+      ],
+      "explanation": "next/image optimizes images, next/font handles fonts, public/ serves static files, and a static export needs unoptimized images (no server to optimize at runtime)."
+    },
+    {
+      "id": "q6",
+      "type": "ordering",
+      "prompt": "Order the steps to display an optimized local image.",
+      "items": [
+        { "id": "s1", "text": "Import the image file (e.g. import hero from './hero.jpg')" },
+        { "id": "s2", "text": "Render <Image src={hero} alt=\"...\" />" },
+        { "id": "s3", "text": "Next.js reserves space, then lazy-loads and optimizes it" }
+      ],
+      "answer": ["s1", "s2", "s3"],
+      "explanation": "A local import gives Next.js the dimensions; <Image> then reserves space (no layout shift) and optimizes and lazy-loads the image."
+    }
+  ]
+}

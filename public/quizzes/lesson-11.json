@@ -1,0 +1,65 @@
+{
+  "id": "quiz-lesson-11",
+  "lessonId": "lesson-11",
+  "title": "Rendering Strategies: Static and Dynamic",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What is Next.js's default rendering strategy for a route with no request-specific data?",
+      "options": [
+        { "id": "a", "text": "Static rendering at build time, reused for every request" },
+        { "id": "b", "text": "Dynamic rendering on every request" },
+        { "id": "c", "text": "Client-side rendering only" },
+        { "id": "d", "text": "It never renders until a user interacts" }
+      ],
+      "answer": "a",
+      "explanation": "By default Next.js statically renders routes at build time and reuses that HTML for all requests."
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "prompt": "Which of these are Dynamic APIs that switch a route to dynamic rendering? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "cookies()" },
+        { "id": "b", "text": "headers()" },
+        { "id": "c", "text": "reading the searchParams prop" },
+        { "id": "d", "text": "importing a CSS Module" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "cookies(), headers(), draftMode(), and searchParams are Dynamic APIs. Importing CSS has nothing to do with rendering strategy."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "To force a route to always render at request time, export: export const dynamic = '______'.",
+      "answer": ["force-dynamic", "'force-dynamic'"],
+      "explanation": "export const dynamic = 'force-dynamic' pins a route to dynamic rendering; 'force-static' pins it static."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each term or page to its rendering strategy.",
+      "pairs": [
+        { "left": "SSG", "right": "Static rendering (build time)" },
+        { "left": "SSR", "right": "Dynamic rendering (request time)" },
+        { "left": "Marketing page", "right": "Best as static" },
+        { "left": "Personalized dashboard", "right": "Best as dynamic" }
+      ],
+      "explanation": "SSG is static, SSR is dynamic; shared content suits static rendering while per-user pages suit dynamic."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order the decision Next.js makes for a route (default 'auto').",
+      "items": [
+        { "id": "s1", "text": "Does the route use a Dynamic API (cookies, headers, searchParams)?" },
+        { "id": "s2", "text": "If no, render it statically at build time" },
+        { "id": "s3", "text": "If yes, render it dynamically per request" }
+      ],
+      "answer": ["s1", "s2", "s3"],
+      "explanation": "With dynamic = 'auto', Next.js checks for Dynamic APIs; without them the route is static, with them it's dynamic."
+    }
+  ]
+}

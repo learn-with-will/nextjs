@@ -1,0 +1,78 @@
+{
+  "id": "quiz-lesson-07",
+  "lessonId": "lesson-07",
+  "title": "Styling Your App",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What does naming a file *.module.css do?",
+      "options": [
+        { "id": "a", "text": "It scopes the class names so they can't collide with other components" },
+        { "id": "b", "text": "It makes the styles apply globally to every page" },
+        { "id": "c", "text": "It converts the CSS to Tailwind utilities" },
+        { "id": "d", "text": "It disables the styles in production" }
+      ],
+      "answer": "a",
+      "explanation": "A CSS Module (*.module.css) has its class names automatically made unique, so styles are scoped to the component that imports them."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "Fill in the blank: import styles from './card.module.css'; then use className={______.card}.",
+      "answer": ["styles"],
+      "explanation": "A CSS Module is imported as an object (commonly named styles); you reference classes as properties like styles.card."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "Which are good uses of global CSS (globals.css)? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "CSS resets and base typography" },
+        { "id": "b", "text": "Design tokens as CSS variables" },
+        { "id": "c", "text": "Every component's unique, private styles" },
+        { "id": "d", "text": "App-wide body/font defaults" }
+      ],
+      "answer": ["a", "b", "d"],
+      "explanation": "Global CSS suits app-wide resets, tokens, and base styles. Component-specific styles belong in scoped modules to avoid collisions."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "Which limitation applies to inline style={{…}}?",
+      "options": [
+        { "id": "a", "text": "It can't express pseudo-classes like :hover or media queries" },
+        { "id": "b", "text": "It only works in Server Components" },
+        { "id": "c", "text": "It cannot set colors" },
+        { "id": "d", "text": "It requires a *.module.css file" }
+      ],
+      "answer": "a",
+      "explanation": "Inline styles set individual properties but can't express :hover states or @media queries, so use them for dynamic one-off values."
+    },
+    {
+      "id": "q5",
+      "type": "match-pair",
+      "prompt": "Match each styling approach to its scope or nature.",
+      "pairs": [
+        { "left": "globals.css", "right": "Applies to the whole app" },
+        { "left": "*.module.css", "right": "Scoped to one component" },
+        { "left": "Tailwind", "right": "Utility classes in markup" },
+        { "left": "style={{…}}", "right": "Inline, dynamic one-off values" }
+      ],
+      "explanation": "Global CSS is app-wide, CSS Modules are component-scoped, Tailwind composes utilities in markup, and inline styles handle dynamic one-offs."
+    },
+    {
+      "id": "q6",
+      "type": "ordering",
+      "prompt": "Order the steps to style a component with a CSS Module.",
+      "items": [
+        { "id": "s1", "text": "Create a file named button.module.css with your classes" },
+        { "id": "s2", "text": "Import it: import styles from './button.module.css'" },
+        { "id": "s3", "text": "Apply a class: className={styles.button}" }
+      ],
+      "answer": ["s1", "s2", "s3"],
+      "explanation": "Create the *.module.css file, import it as an object, then reference its scoped class names via that object."
+    }
+  ]
+}

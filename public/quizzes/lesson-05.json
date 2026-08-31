@@ -1,0 +1,79 @@
+{
+  "id": "quiz-lesson-05",
+  "lessonId": "lesson-05",
+  "title": "Linking and Navigation",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What is the main advantage of <Link> over a plain <a> for internal navigation?",
+      "options": [
+        { "id": "a", "text": "It navigates client-side without a full page reload, and prefetches the route" },
+        { "id": "b", "text": "It automatically styles links blue" },
+        { "id": "c", "text": "It only works for external URLs" },
+        { "id": "d", "text": "It disables JavaScript for that page" }
+      ],
+      "answer": "a",
+      "explanation": "<Link> does fast client-side navigation and prefetches linked routes in production, while a plain <a> reloads the entire page."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "In the App Router, from which module do you import useRouter and usePathname? Type the module path.",
+      "answer": ["next/navigation", "'next/navigation'"],
+      "explanation": "App Router navigation hooks come from next/navigation. next/router is the old Pages Router module."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "Which of these require a Client Component (\"use client\")? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "usePathname()" },
+        { "id": "b", "text": "useRouter()" },
+        { "id": "c", "text": "redirect() during server render" },
+        { "id": "d", "text": "A basic <Link href> with no hooks" }
+      ],
+      "answer": ["a", "b"],
+      "explanation": "usePathname and useRouter are hooks and need a Client Component. redirect() runs on the server, and a plain <Link> works anywhere."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "How do you navigate to /checkout from a button's onClick handler?",
+      "options": [
+        { "id": "a", "text": "const router = useRouter(); router.push('/checkout')" },
+        { "id": "b", "text": "redirect('/checkout') inside onClick" },
+        { "id": "c", "text": "window.location = 'next/navigation'" },
+        { "id": "d", "text": "usePathname('/checkout')" }
+      ],
+      "answer": "a",
+      "explanation": "In a Client Component, useRouter() gives you push() for programmatic navigation. redirect() is for server code, not click handlers."
+    },
+    {
+      "id": "q5",
+      "type": "match-pair",
+      "prompt": "Match each navigation tool to its purpose.",
+      "pairs": [
+        { "left": "<Link href>", "right": "Declarative client-side link" },
+        { "left": "useRouter().push", "right": "Programmatic navigation from code" },
+        { "left": "usePathname()", "right": "Read the current URL path" },
+        { "left": "redirect()", "right": "Redirect from server code" }
+      ],
+      "explanation": "<Link> is declarative, useRouter navigates from logic, usePathname reads the path, and redirect() runs on the server."
+    },
+    {
+      "id": "q6",
+      "type": "ordering",
+      "prompt": "Order what happens when a prefetched <Link> is clicked.",
+      "items": [
+        { "id": "s1", "text": "The link scrolls into view and Next.js prefetches the route" },
+        { "id": "s2", "text": "The user clicks the link" },
+        { "id": "s3", "text": "Next.js renders the already-loaded route in place" },
+        { "id": "s4", "text": "The URL updates without a full page reload" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "Links prefetch when visible; clicking then swaps in the route client-side and updates the URL with no full reload."
+    }
+  ]
+}

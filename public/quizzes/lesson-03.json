@@ -1,0 +1,78 @@
+{
+  "id": "quiz-lesson-03",
+  "lessonId": "lesson-03",
+  "title": "Pages and File-Based Routing",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What URL does app/dashboard/settings/page.tsx map to?",
+      "options": [
+        { "id": "a", "text": "/dashboard/settings" },
+        { "id": "b", "text": "/settings/dashboard" },
+        { "id": "c", "text": "/dashboard" },
+        { "id": "d", "text": "/page/dashboard/settings" }
+      ],
+      "answer": "a",
+      "explanation": "Folder nesting mirrors URL nesting, so app/dashboard/settings/page.tsx serves /dashboard/settings."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "What makes a folder inside app/ a visitable route?",
+      "options": [
+        { "id": "a", "text": "Adding a page.tsx (or route.ts) file to it" },
+        { "id": "b", "text": "The folder existing at all" },
+        { "id": "c", "text": "Registering it in next.config.ts" },
+        { "id": "d", "text": "Adding an index.tsx file" }
+      ],
+      "answer": "a",
+      "explanation": "A folder becomes a public route only when it contains a page.tsx (for UI) or route.ts (for an API). A folder by itself is not reachable."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "What is the exact (lowercase) file name that renders a route's UI in the App Router?",
+      "answer": ["page.tsx", "page"],
+      "explanation": "The reserved file is page.tsx (lowercase). index.tsx and Page.tsx do not work."
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "prompt": "Which of these are reserved file names in a route folder? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "layout.tsx" },
+        { "id": "b", "text": "loading.tsx" },
+        { "id": "c", "text": "PostCard.tsx" },
+        { "id": "d", "text": "not-found.tsx" }
+      ],
+      "answer": ["a", "b", "d"],
+      "explanation": "layout, loading, and not-found are reserved. PostCard.tsx is a non-reserved name, so it is a colocated helper, not a route."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order these folders from the shortest URL to the longest URL they produce.",
+      "items": [
+        { "id": "s1", "text": "app/page.tsx" },
+        { "id": "s2", "text": "app/shop/page.tsx" },
+        { "id": "s3", "text": "app/shop/shoes/page.tsx" },
+        { "id": "s4", "text": "app/shop/shoes/running/page.tsx" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "These map to /, /shop, /shop/shoes, and /shop/shoes/running — each added folder adds one URL segment."
+    },
+    {
+      "id": "q6",
+      "type": "match-pair",
+      "prompt": "Match each file path to the URL it produces.",
+      "pairs": [
+        { "left": "app/page.tsx", "right": "/" },
+        { "left": "app/about/page.tsx", "right": "/about" },
+        { "left": "app/shop/shoes/page.tsx", "right": "/shop/shoes" }
+      ],
+      "explanation": "Folder nesting mirrors URL nesting, so each page.tsx serves the URL formed by its folder path."
+    }
+  ]
+}

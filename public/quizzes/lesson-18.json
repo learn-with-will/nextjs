@@ -1,0 +1,66 @@
+{
+  "id": "quiz-lesson-18",
+  "lessonId": "lesson-18",
+  "title": "Forms, useActionState, and Optimistic UI",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "Which hook exposes a Server Action's return value and pending state?",
+      "options": [
+        { "id": "a", "text": "useActionState (from react)" },
+        { "id": "b", "text": "useEffect (from react)" },
+        { "id": "c", "text": "useRouter (from next/navigation)" },
+        { "id": "d", "text": "useState (from react)" }
+      ],
+      "answer": "a",
+      "explanation": "useActionState wraps an action and returns [state, formAction, isPending]; the action gains a prevState first argument. It comes from react."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "useActionState was previously named ____ (and imported from react-dom). Type the old hook name.",
+      "answer": ["useFormState"],
+      "explanation": "useActionState is the current name; it was previously useFormState, imported from react-dom."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "Which statements are correct? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "useFormStatus must be used in a child rendered inside the <form>" },
+        { "id": "b", "text": "useFormStatus comes from react-dom" },
+        { "id": "c", "text": "useOptimistic shows provisional UI before the server confirms" },
+        { "id": "d", "text": "These hooks remove the need for server-side validation" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "useFormStatus (react-dom) reads the parent form and must be in a child; useOptimistic shows provisional UI. Server-side validation is still required."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each hook to its job and module.",
+      "pairs": [
+        { "left": "useActionState", "right": "Action result + pending (react)" },
+        { "left": "useFormStatus", "right": "Parent form's pending state (react-dom)" },
+        { "left": "useOptimistic", "right": "Instant provisional UI (react)" },
+        { "left": "prevState argument", "right": "First arg the action receives via useActionState" }
+      ],
+      "explanation": "useActionState and useOptimistic come from react; useFormStatus from react-dom; useActionState passes prevState to the action."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order an optimistic 'like' interaction.",
+      "items": [
+        { "id": "s1", "text": "User clicks like" },
+        { "id": "s2", "text": "useOptimistic shows the incremented count immediately" },
+        { "id": "s3", "text": "The Server Action persists the like" },
+        { "id": "s4", "text": "Revalidation replaces the optimistic count with the confirmed one" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "The optimistic value shows at once; the action persists the change; revalidation reconciles the UI with the real value."
+    }
+  ]
+}

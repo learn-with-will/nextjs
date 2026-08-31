@@ -1,0 +1,66 @@
+{
+  "id": "quiz-lesson-12",
+  "lessonId": "lesson-12",
+  "title": "Caching and Revalidation",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "As of Next.js 15, what is the default caching behavior of fetch()?",
+      "options": [
+        { "id": "a", "text": "Not cached — fresh on every request unless you opt in" },
+        { "id": "b", "text": "Cached indefinitely by default" },
+        { "id": "c", "text": "Cached for exactly 60 seconds by default" },
+        { "id": "d", "text": "Never allowed to be cached at all" }
+      ],
+      "answer": "a",
+      "explanation": "In Next.js 15, fetch is uncached by default. You opt into caching with cache: 'force-cache' or next: { revalidate }."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "To cache a fetch response indefinitely until revalidated, pass cache: '______'.",
+      "answer": ["force-cache", "'force-cache'"],
+      "explanation": "cache: 'force-cache' caches the response until it is revalidated; 'no-store' never caches."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "Which trigger an immediate (on-demand) refresh of cached data? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "revalidatePath('/blog')" },
+        { "id": "b", "text": "revalidateTag('posts')" },
+        { "id": "c", "text": "next: { revalidate: 3600 }" },
+        { "id": "d", "text": "Reloading the browser" }
+      ],
+      "answer": ["a", "b"],
+      "explanation": "revalidatePath and revalidateTag invalidate cached data immediately. next: { revalidate } is time-based, and a reload doesn't clear the server cache."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each caching option to its effect.",
+      "pairs": [
+        { "left": "cache: 'no-store'", "right": "Always fresh, never cached" },
+        { "left": "cache: 'force-cache'", "right": "Cached until revalidated" },
+        { "left": "next: { revalidate: 60 }", "right": "Cached, refreshed at most every 60s (ISR)" },
+        { "left": "revalidateTag('x')", "right": "Invalidate tagged data on demand" }
+      ],
+      "explanation": "no-store is always fresh, force-cache caches indefinitely, revalidate does timed refresh (ISR), and revalidateTag invalidates on demand."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order the lifecycle of a tagged, hourly-revalidated blog list after a new post is created.",
+      "items": [
+        { "id": "s1", "text": "The list is fetched with next: { revalidate: 3600, tags: ['posts'] }" },
+        { "id": "s2", "text": "Visitors are served the cached list quickly" },
+        { "id": "s3", "text": "A Server Action creates a post and calls revalidateTag('posts')" },
+        { "id": "s4", "text": "The next request rebuilds and serves the fresh list" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "The tagged fetch is cached and served fast; revalidateTag invalidates it after the mutation, so the next request regenerates the fresh list."
+    }
+  ]
+}

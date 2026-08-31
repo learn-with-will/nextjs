@@ -1,0 +1,66 @@
+{
+  "id": "quiz-lesson-01",
+  "lessonId": "lesson-01",
+  "title": "What Is Next.js?",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "Which statement best describes Next.js?",
+      "options": [
+        { "id": "a", "text": "A React framework that adds routing, rendering, and data fetching on top of React" },
+        { "id": "b", "text": "A replacement for React that uses a different component model" },
+        { "id": "c", "text": "A CSS framework for styling React apps" },
+        { "id": "d", "text": "A database used by React applications" }
+      ],
+      "answer": "a",
+      "explanation": "Next.js is a framework built on top of React. It keeps React's components and hooks and adds routing, rendering strategies, data fetching, and an optimized build."
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "prompt": "Which statements about the App Router are true? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "Files and folders inside app/ define the application's URLs" },
+        { "id": "b", "text": "Components are Server Components by default" },
+        { "id": "c", "text": "It uses getServerSideProps to fetch data" },
+        { "id": "d", "text": "It is the recommended approach for new Next.js projects" }
+      ],
+      "answer": ["a", "b", "d"],
+      "explanation": "In the App Router, the file system defines routes, components render on the server by default, and it is recommended for new projects. getServerSideProps belongs to the older Pages Router."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "In the App Router, which special directory holds your routes? Type just the folder name.",
+      "answer": ["app", "app/", "/app"],
+      "explanation": "The App Router uses the app/ directory: a page.tsx inside a folder becomes that folder's route."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each term to its description.",
+      "pairs": [
+        { "left": "Server Component", "right": "Runs on the server by default in the App Router" },
+        { "left": "Client Component", "right": "Runs in the browser; opted into with \"use client\"" },
+        { "left": "App Router", "right": "The app/ directory system for new projects" },
+        { "left": "Pages Router", "right": "The older pages/ directory system" }
+      ],
+      "explanation": "The App Router (app/) renders Server Components by default; Client Components opt into the browser with \"use client\". The Pages Router (pages/) is the older system."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Put the steps of a first request to a Server Component page in order.",
+      "items": [
+        { "id": "s1", "text": "A browser requests a URL like /about" },
+        { "id": "s2", "text": "Next.js runs the matching page.tsx on the server" },
+        { "id": "s3", "text": "The component is turned into HTML" },
+        { "id": "s4", "text": "The finished HTML is sent to the browser and displayed" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "A Server Component runs on the server in response to the request, is rendered to HTML, and that HTML is sent to the browser — giving fast first paint and good SEO."
+    }
+  ]
+}

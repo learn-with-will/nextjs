@@ -1,0 +1,79 @@
+{
+  "id": "quiz-lesson-10",
+  "lessonId": "lesson-10",
+  "title": "Fetching Data in Server Components",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "How do you fetch data for a page in the App Router?",
+      "options": [
+        { "id": "a", "text": "Make the page an async Server Component and await fetch() directly" },
+        { "id": "b", "text": "Use getServerSideProps" },
+        { "id": "c", "text": "Fetch in a useEffect in the page component" },
+        { "id": "d", "text": "Call fetch() in next.config.ts" }
+      ],
+      "answer": "a",
+      "explanation": "Server Components can be async and await data inline. getServerSideProps and useEffect are not needed for reads in the App Router."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "Two independent fetches don't depend on each other. What's the best way to load them?",
+      "options": [
+        { "id": "a", "text": "Start them together with Promise.all" },
+        { "id": "b", "text": "await one, then await the other" },
+        { "id": "c", "text": "Fetch them in separate useEffects" },
+        { "id": "d", "text": "Combine them into next.config.ts" }
+      ],
+      "answer": "a",
+      "explanation": "Independent requests should run in parallel via Promise.all to avoid a waterfall where each waits for the previous."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "Next.js automatically de-duplicates identical fetch() calls in a single render. What is this feature called (two words)?",
+      "answer": ["request memoization", "memoization"],
+      "explanation": "Request memoization dedupes identical fetch() calls made during one render pass into a single request."
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "prompt": "Which are true about fetching in Server Components? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "You can query a database or ORM directly" },
+        { "id": "b", "text": "Secrets and API keys stay on the server" },
+        { "id": "c", "text": "The data ends up in the initial HTML" },
+        { "id": "d", "text": "You must expose a public API for the browser to call" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Server Components can query databases directly, keep secrets server-side, and render data into the HTML — no public API required."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order the steps of rendering a data-driven Server Component page.",
+      "items": [
+        { "id": "s1", "text": "The async page component runs on the server" },
+        { "id": "s2", "text": "It awaits the data it needs (in parallel where possible)" },
+        { "id": "s3", "text": "It renders to HTML with the data included" },
+        { "id": "s4", "text": "The HTML is sent to the browser" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "The server runs the async component, awaits data, renders HTML containing that data, and sends it to the browser."
+    },
+    {
+      "id": "q6",
+      "type": "match-pair",
+      "prompt": "Match each data-fetching concept to its meaning.",
+      "pairs": [
+        { "left": "await fetch in a Server Component", "right": "Read data on the server before rendering" },
+        { "left": "Promise.all([...])", "right": "Run independent requests in parallel" },
+        { "left": "Request memoization", "right": "De-duplicate identical fetch calls in one render" },
+        { "left": "Waterfall", "right": "Slow sequential awaits that don't need to be" }
+      ],
+      "explanation": "Server-side await reads data before render, Promise.all parallelizes independent requests, memoization dedupes identical fetches, and a waterfall is avoidable sequential awaiting."
+    }
+  ]
+}

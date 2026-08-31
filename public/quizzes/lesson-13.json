@@ -1,0 +1,79 @@
+{
+  "id": "quiz-lesson-13",
+  "lessonId": "lesson-13",
+  "title": "Loading UI and Streaming",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What does adding loading.tsx to a route folder do?",
+      "options": [
+        { "id": "a", "text": "Shows that UI instantly while the route loads, via a Suspense boundary" },
+        { "id": "b", "text": "Blocks the route from rendering until data is ready" },
+        { "id": "c", "text": "Adds a route handler at /loading" },
+        { "id": "d", "text": "Disables streaming for that route" }
+      ],
+      "answer": "a",
+      "explanation": "loading.tsx is shown immediately while the segment loads; Next.js wraps the page in a React <Suspense> with loading.tsx as the fallback."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "Which React component do you wrap a slow widget in to stream it with a fallback? Type the component name.",
+      "answer": ["Suspense", "<Suspense>", "suspense"],
+      "explanation": "<Suspense fallback={...}> shows the fallback until its children finish loading, streaming that subtree independently."
+    },
+    {
+      "id": "q3",
+      "type": "single-choice",
+      "prompt": "Why is wrapping an entire page in one Suspense boundary usually wrong?",
+      "options": [
+        { "id": "a", "text": "The whole page waits on its slowest child, hiding fast content" },
+        { "id": "b", "text": "Suspense can only wrap a single element" },
+        { "id": "c", "text": "It disables loading.tsx permanently" },
+        { "id": "d", "text": "It forces the page to render on the client" }
+      ],
+      "answer": "a",
+      "explanation": "A single page-wide boundary makes all content wait on the slowest child. Scope boundaries to the slow subtree instead."
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "prompt": "Which statements about streaming are true? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "The server can send HTML in chunks as parts become ready" },
+        { "id": "b", "text": "It improves perceived performance" },
+        { "id": "c", "text": "Fallbacks should be lightweight" },
+        { "id": "d", "text": "It requires a separate backend server you write yourself" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Streaming sends HTML progressively, improving perceived performance, and fallbacks should be light. It's built into Next.js — no separate backend."
+    },
+    {
+      "id": "q5",
+      "type": "match-pair",
+      "prompt": "Match each tool to its scope.",
+      "pairs": [
+        { "left": "loading.tsx", "right": "A loading state for the whole route segment" },
+        { "left": "<Suspense fallback>", "right": "Stream one component or subtree" },
+        { "left": "Streaming", "right": "Send HTML shell first, slow parts later" },
+        { "left": "Fallback", "right": "Placeholder shown while content loads" }
+      ],
+      "explanation": "loading.tsx covers a route, Suspense scopes to a subtree, streaming sends HTML progressively, and a fallback is the placeholder."
+    },
+    {
+      "id": "q6",
+      "type": "ordering",
+      "prompt": "Order what the user experiences with a streamed Suspense section.",
+      "items": [
+        { "id": "s1", "text": "The page shell and fast content render immediately" },
+        { "id": "s2", "text": "The Suspense fallback shows for the slow section" },
+        { "id": "s3", "text": "The slow component's data resolves on the server" },
+        { "id": "s4", "text": "The finished section streams in, replacing the fallback" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "Streaming shows the shell first, displays the fallback for the slow part, then swaps in that part once its data resolves."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "quiz-lesson-15",
+  "lessonId": "lesson-15",
+  "title": "Route Handlers and APIs",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "How do you create a GET endpoint at /api/hello?",
+      "options": [
+        { "id": "a", "text": "Add app/api/hello/route.ts that exports an async function named GET" },
+        { "id": "b", "text": "Add app/api/hello/page.tsx that returns JSON" },
+        { "id": "c", "text": "Register the route in next.config.ts" },
+        { "id": "d", "text": "Export a default function from api.ts" }
+      ],
+      "answer": "a",
+      "explanation": "A route.ts file with an exported GET function defines the endpoint; method-named exports handle each HTTP method."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "Can a single segment contain both page.tsx and route.ts?",
+      "options": [
+        { "id": "a", "text": "No — a segment is either a page or a Route Handler, not both" },
+        { "id": "b", "text": "Yes — they always work together" },
+        { "id": "c", "text": "Only if you set allowBoth in next.config.ts" },
+        { "id": "d", "text": "Only in production builds" }
+      ],
+      "answer": "a",
+      "explanation": "A segment is either UI (page.tsx) or an endpoint (route.ts). Put the API under a different path like app/api/…."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "How do you read a JSON request body in a Route Handler? Complete: const body = await request.____();",
+      "answer": ["json"],
+      "explanation": "await request.json() parses the request body; it returns a promise, so you must await it."
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "prompt": "Which are good reasons to use a Route Handler? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "Receiving a third-party webhook" },
+        { "id": "b", "text": "Exposing an API for a mobile app" },
+        { "id": "c", "text": "Fetching data to render your own Server Component page" },
+        { "id": "d", "text": "Handling a POST from an external client" }
+      ],
+      "answer": ["a", "b", "d"],
+      "explanation": "Route Handlers suit webhooks, external APIs, and external POSTs. For your own pages, fetch directly in a Server Component."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order the steps a POST Route Handler takes to create a resource.",
+      "items": [
+        { "id": "s1", "text": "Receive the Request in the exported POST function" },
+        { "id": "s2", "text": "Read the body with await request.json()" },
+        { "id": "s3", "text": "Save the new resource" },
+        { "id": "s4", "text": "Return Response.json(created, { status: 201 })" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "A POST handler receives the request, parses the body, performs the write, and returns the created resource with a 201 status."
+    },
+    {
+      "id": "q6",
+      "type": "match-pair",
+      "prompt": "Match each Route Handler concept to its meaning.",
+      "pairs": [
+        { "left": "route.ts", "right": "Defines an HTTP endpoint (not a page)" },
+        { "left": "export async function POST", "right": "Handles POST requests" },
+        { "left": "await request.json()", "right": "Read the JSON request body" },
+        { "left": "Response.json(data)", "right": "Return a JSON response" }
+      ],
+      "explanation": "route.ts is the endpoint file, method exports handle each verb, request.json() reads the body, and Response.json returns JSON."
+    }
+  ]
+}

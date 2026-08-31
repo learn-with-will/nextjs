@@ -1,0 +1,79 @@
+{
+  "id": "quiz-lesson-16",
+  "lessonId": "lesson-16",
+  "title": "Metadata and SEO",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "How do you set a fixed title and description for a page?",
+      "options": [
+        { "id": "a", "text": "Export a metadata object from the page or layout (a Server Component)" },
+        { "id": "b", "text": "Write <title> and <meta> tags in a <head> you render yourself" },
+        { "id": "c", "text": "Set them in next.config.ts" },
+        { "id": "d", "text": "Return them from a Client Component" }
+      ],
+      "answer": "a",
+      "explanation": "Export a metadata object (typed Metadata) from a Server Component page/layout; Next.js renders the correct head tags."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "When should you use generateMetadata instead of the metadata object?",
+      "options": [
+        { "id": "a", "text": "When the metadata depends on data, like a post's title" },
+        { "id": "b", "text": "Whenever the page is a Client Component" },
+        { "id": "c", "text": "Only for the root layout" },
+        { "id": "d", "text": "Never — it's deprecated" }
+      ],
+      "answer": "a",
+      "explanation": "generateMetadata is an async function for data-driven metadata; in Next.js 15 its params is a Promise you await."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "In a root layout, title: { template: '%s | My Site' } applies a suffix. What placeholder represents the child page's title? Type it.",
+      "answer": ["%s"],
+      "explanation": "%s is replaced by the child page's title, producing e.g. 'Pricing | My Site'."
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "prompt": "Which statements about the Metadata API are true? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "It only works in Server Components" },
+        { "id": "b", "text": "openGraph fields control social link previews" },
+        { "id": "c", "text": "Files like favicon.ico and sitemap.xml are recognized automatically" },
+        { "id": "d", "text": "You must hand-write all <head> tags yourself" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Metadata works in Server Components, openGraph drives previews, and file conventions are auto-detected — so you don't hand-write head tags."
+    },
+    {
+      "id": "q5",
+      "type": "match-pair",
+      "prompt": "Match each metadata tool to its purpose.",
+      "pairs": [
+        { "left": "metadata export", "right": "Static title/description" },
+        { "left": "generateMetadata", "right": "Metadata computed from data" },
+        { "left": "title.template", "right": "Consistent suffix across pages" },
+        { "left": "openGraph", "right": "Rich social share previews" }
+      ],
+      "explanation": "Static values use the metadata object, dynamic ones use generateMetadata, templates unify titles, and openGraph controls previews."
+    },
+    {
+      "id": "q6",
+      "type": "ordering",
+      "prompt": "Order how a blog post's <title> is produced with a layout template.",
+      "items": [
+        { "id": "s1", "text": "The root layout defines title.template '%s | DevBlog'" },
+        { "id": "s2", "text": "generateMetadata awaits params and fetches the post" },
+        { "id": "s3", "text": "It returns title: post.title" },
+        { "id": "s4", "text": "Next.js renders '<post title> | DevBlog' in the head" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "The layout template sets the pattern; generateMetadata supplies the page title, which the template wraps into the final head title."
+    }
+  ]
+}

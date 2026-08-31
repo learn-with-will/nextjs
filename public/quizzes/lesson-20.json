@@ -1,0 +1,66 @@
+{
+  "id": "quiz-lesson-20",
+  "lessonId": "lesson-20",
+  "title": "Parallel and Intercepting Routes",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What does a folder named @analytics create in the App Router?",
+      "options": [
+        { "id": "a", "text": "A parallel-route slot passed to the layout as a named prop" },
+        { "id": "b", "text": "A URL segment /analytics" },
+        { "id": "c", "text": "A Route Handler at /@analytics" },
+        { "id": "d", "text": "A CSS Module named analytics" }
+      ],
+      "answer": "a",
+      "explanation": "An @name folder is a parallel-route slot; it's rendered as a named prop in the layout and does not affect the URL."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "Which file provides a slot's fallback when it has no match for the current URL? Type the file name.",
+      "answer": ["default.tsx", "default"],
+      "explanation": "default.tsx is the fallback for an unmatched slot; without it, a hard reload can 404."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "Which statements are true? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "The @ prefix on a slot folder does not change the URL" },
+        { "id": "b", "text": "Each slot can have its own loading.tsx and error.tsx" },
+        { "id": "c", "text": "Intercepting routes load a route within the current layout" },
+        { "id": "d", "text": "Parallel slots must all render the exact same content" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Slots don't affect the URL, can have independent loading/error, and intercepting routes render within the current layout. Slots render independent content."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each intercepting-route convention to its meaning.",
+      "pairs": [
+        { "left": "(.)", "right": "Intercept a segment at the same level" },
+        { "left": "(..)", "right": "Intercept one level up" },
+        { "left": "(...)", "right": "Intercept from the root" },
+        { "left": "@modal", "right": "A slot to render the intercepted route in" }
+      ],
+      "explanation": "The parentheses conventions target how far up the segment is; the @modal slot displays the intercepted route as a dialog."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order the modal-pattern behavior when a user clicks a photo link.",
+      "items": [
+        { "id": "s1", "text": "The click navigates toward /photos/[id]" },
+        { "id": "s2", "text": "An intercepting route captures it into the @modal slot" },
+        { "id": "s3", "text": "The photo shows as a modal over the current page" },
+        { "id": "s4", "text": "Refreshing that URL instead renders the full photo page" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "The interception shows the route as a modal during in-app navigation, while a direct visit/refresh renders the full page."
+    }
+  ]
+}

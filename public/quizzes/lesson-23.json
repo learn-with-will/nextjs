@@ -1,0 +1,79 @@
+{
+  "id": "quiz-lesson-23",
+  "lessonId": "lesson-23",
+  "title": "Performance and Optimization",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "What is the single most effective way to reduce a page's JavaScript bundle?",
+      "options": [
+        { "id": "a", "text": "Keep components as Server Components and isolate \"use client\" to small leaves" },
+        { "id": "b", "text": "Mark the whole page \"use client\"" },
+        { "id": "c", "text": "Fetch all data in useEffect" },
+        { "id": "d", "text": "Inline every third-party script in the head" }
+      ],
+      "answer": "a",
+      "explanation": "Server Components ship zero JavaScript. Keeping work on the server and isolating interactivity is the biggest bundle-size lever."
+    },
+    {
+      "id": "q2",
+      "type": "single-choice",
+      "prompt": "What does next/dynamic do?",
+      "options": [
+        { "id": "a", "text": "Code-splits a component so its JS loads on demand, with an optional placeholder" },
+        { "id": "b", "text": "Converts a Server Component into a Route Handler" },
+        { "id": "c", "text": "Disables caching for a route" },
+        { "id": "d", "text": "Adds a database connection" }
+      ],
+      "answer": "a",
+      "explanation": "next/dynamic dynamically imports (lazy-loads) a component so its code is fetched only when rendered, optionally showing a loading fallback."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "Which Core Web Vital measures loading — when the main content appears? Type its three-letter acronym.",
+      "answer": ["LCP"],
+      "explanation": "LCP (Largest Contentful Paint) measures when the largest/main content becomes visible."
+    },
+    {
+      "id": "q4",
+      "type": "multiple-choice",
+      "prompt": "Which are good performance practices in Next.js? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "Lazy-load heavy client code with next/dynamic" },
+        { "id": "b", "text": "Use next/image and next/font to protect LCP and CLS" },
+        { "id": "c", "text": "Load third-party scripts with next/script and a strategy" },
+        { "id": "d", "text": "Mark every component \"use client\" to be safe" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Lazy-loading, image/font optimization, and next/script all help. Over-using \"use client\" bloats the bundle."
+    },
+    {
+      "id": "q5",
+      "type": "match-pair",
+      "prompt": "Match each Core Web Vital to what it measures.",
+      "pairs": [
+        { "left": "LCP", "right": "Loading — when main content appears" },
+        { "left": "CLS", "right": "Visual stability — layout shift" },
+        { "left": "INP", "right": "Responsiveness — reaction to input" },
+        { "left": "next/image", "right": "Improves LCP and reduces CLS" }
+      ],
+      "explanation": "LCP is loading, CLS is stability, INP is responsiveness; next/image helps LCP/CLS by optimizing images and reserving space."
+    },
+    {
+      "id": "q6",
+      "type": "ordering",
+      "prompt": "Order a sensible performance-optimization workflow.",
+      "items": [
+        { "id": "s1", "text": "Measure current Core Web Vitals and bundle size" },
+        { "id": "s2", "text": "Keep non-interactive components as Server Components" },
+        { "id": "s3", "text": "Lazy-load heavy client code with next/dynamic" },
+        { "id": "s4", "text": "Re-measure to confirm the improvement" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "Measure first, cut client JS by favoring Server Components, defer heavy client code, then re-measure to verify the gains."
+    }
+  ]
+}

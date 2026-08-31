@@ -1,0 +1,66 @@
+{
+  "id": "quiz-lesson-19",
+  "lessonId": "lesson-19",
+  "title": "Middleware",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "Where does the middleware file live and how many are there per project?",
+      "options": [
+        { "id": "a", "text": "A single middleware.ts at the project root (or src/)" },
+        { "id": "b", "text": "One middleware.ts in every route folder" },
+        { "id": "c", "text": "Inside next.config.ts as a function" },
+        { "id": "d", "text": "In public/middleware.js" }
+      ],
+      "answer": "a",
+      "explanation": "There is one middleware.ts entry point at the project root (or inside src/)."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "Which config key scopes middleware to specific paths? export const config = { ______: [...] }",
+      "answer": ["matcher"],
+      "explanation": "config.matcher limits which request paths the middleware runs on."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "Which are true about middleware? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "It runs before the request is completed (before rendering)" },
+        { "id": "b", "text": "It runs on the Edge runtime by default" },
+        { "id": "c", "text": "It should be fast and avoid heavy database work" },
+        { "id": "d", "text": "It is a complete substitute for authorization at the data layer" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "Middleware runs early on the Edge runtime and must be fast. It's a coarse gate, not a replacement for real authorization near your data."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each NextResponse call to its effect.",
+      "pairs": [
+        { "left": "NextResponse.next()", "right": "Let the request proceed" },
+        { "left": "NextResponse.redirect(url)", "right": "Send the browser to a new URL" },
+        { "left": "NextResponse.rewrite(url)", "right": "Serve a different path, URL unchanged" },
+        { "left": "res.headers.set(...)", "right": "Add a response header" }
+      ],
+      "explanation": "next() proceeds, redirect() navigates, rewrite() serves another path silently, and setting headers modifies the response."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order how a request to /dashboard flows through an auth middleware.",
+      "items": [
+        { "id": "s1", "text": "A request to /dashboard matches the middleware matcher" },
+        { "id": "s2", "text": "Middleware checks for a session cookie" },
+        { "id": "s3", "text": "If missing, it returns NextResponse.redirect('/login')" },
+        { "id": "s4", "text": "If present, NextResponse.next() lets the page render" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "The matcher triggers the middleware, which checks the cookie and either redirects or lets the request continue."
+    }
+  ]
+}

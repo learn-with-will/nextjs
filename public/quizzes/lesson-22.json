@@ -1,0 +1,66 @@
+{
+  "id": "quiz-lesson-22",
+  "lessonId": "lesson-22",
+  "title": "The Caching Model in Depth",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "Which cache dedupes identical fetch calls within a single render pass?",
+      "options": [
+        { "id": "a", "text": "Request Memoization" },
+        { "id": "b", "text": "The Full Route Cache" },
+        { "id": "c", "text": "The client Router Cache" },
+        { "id": "d", "text": "The browser HTTP cache" }
+      ],
+      "answer": "a",
+      "explanation": "Request Memoization (a React feature) dedupes identical fetch calls during one render; it lasts only for that render."
+    },
+    {
+      "id": "q2",
+      "type": "fill-blank",
+      "prompt": "Which server cache stores persistent fetch results across requests? Type its two-word name.",
+      "answer": ["Data Cache", "data cache", "the Data Cache"],
+      "explanation": "The Data Cache holds fetch results on the server across requests and deployments; you control it with cache/revalidate."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "Which statements are true? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "The Full Route Cache stores statically rendered route output" },
+        { "id": "b", "text": "The Router Cache lives in the browser for the session" },
+        { "id": "c", "text": "revalidateTag/revalidatePath invalidate server caches" },
+        { "id": "d", "text": "In Next.js 15, fetch fills the Data Cache automatically" }
+      ],
+      "answer": ["a", "b", "c"],
+      "explanation": "The Full Route Cache holds static output, the Router Cache is client-side, and revalidate* clears server caches. In Next.js 15 you must opt into caching fetch."
+    },
+    {
+      "id": "q4",
+      "type": "match-pair",
+      "prompt": "Match each cache to its scope.",
+      "pairs": [
+        { "left": "Request Memoization", "right": "One render pass (server)" },
+        { "left": "Data Cache", "right": "Across requests & deploys (server)" },
+        { "left": "Full Route Cache", "right": "Static route output (server)" },
+        { "left": "Router Cache", "right": "The user's session (browser)" }
+      ],
+      "explanation": "Memoization is per-render, the Data Cache persists across requests, the Full Route Cache holds static output, and the Router Cache is client-side."
+    },
+    {
+      "id": "q5",
+      "type": "ordering",
+      "prompt": "Order the caches from innermost (one render) to outermost (browser).",
+      "items": [
+        { "id": "s1", "text": "Request Memoization" },
+        { "id": "s2", "text": "Data Cache" },
+        { "id": "s3", "text": "Full Route Cache" },
+        { "id": "s4", "text": "Router Cache" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "Memoization (one render) → Data Cache (across requests) → Full Route Cache (rendered output) → Router Cache (client navigation)."
+    }
+  ]
+}

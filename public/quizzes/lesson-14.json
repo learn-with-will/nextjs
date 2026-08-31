@@ -1,0 +1,79 @@
+{
+  "id": "quiz-lesson-14",
+  "lessonId": "lesson-14",
+  "title": "Error Handling",
+  "passingScore": 60,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single-choice",
+      "prompt": "Which directive must error.tsx start with, and why?",
+      "options": [
+        { "id": "a", "text": "\"use client\" — it uses reset() and onClick, which need a Client Component" },
+        { "id": "b", "text": "\"use server\" — error boundaries run only on the server" },
+        { "id": "c", "text": "No directive — it's a plain Server Component" },
+        { "id": "d", "text": "\"use error\" — a special error directive" }
+      ],
+      "answer": "a",
+      "explanation": "error.tsx is interactive (reset, onClick), so it must be a Client Component and start with \"use client\"."
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "prompt": "Which props does error.tsx receive? Select all that apply.",
+      "options": [
+        { "id": "a", "text": "error" },
+        { "id": "b", "text": "reset" },
+        { "id": "c", "text": "params" },
+        { "id": "d", "text": "searchParams" }
+      ],
+      "answer": ["a", "b"],
+      "explanation": "error.tsx receives the thrown error and a reset function; params/searchParams are page props, not error-boundary props."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "Which function (from next/navigation) triggers the not-found UI and a 404? Type its name.",
+      "answer": ["notFound", "notFound()"],
+      "explanation": "notFound() renders the nearest not-found.tsx and returns a 404 status."
+    },
+    {
+      "id": "q4",
+      "type": "single-choice",
+      "prompt": "Which errors does a segment's error.tsx NOT catch?",
+      "options": [
+        { "id": "a", "text": "Errors thrown in the root layout itself" },
+        { "id": "b", "text": "Errors in its page component" },
+        { "id": "c", "text": "Errors in a nested child component" },
+        { "id": "d", "text": "Errors in a component it renders" }
+      ],
+      "answer": "a",
+      "explanation": "error.tsx covers its segment and below, but not the root layout. Root-layout errors need global-error.tsx (which renders its own <html>/<body>)."
+    },
+    {
+      "id": "q5",
+      "type": "match-pair",
+      "prompt": "Match each file or function to its role.",
+      "pairs": [
+        { "left": "error.tsx", "right": "Per-segment error boundary with reset" },
+        { "left": "not-found.tsx", "right": "UI shown for 404s" },
+        { "left": "notFound()", "right": "Trigger a 404 from a page" },
+        { "left": "global-error.tsx", "right": "Catch root-layout errors" }
+      ],
+      "explanation": "error.tsx handles segment errors, not-found.tsx/notFound() handle 404s, and global-error.tsx handles root-layout failures."
+    },
+    {
+      "id": "q6",
+      "type": "ordering",
+      "prompt": "Order what happens when a component throws and the user retries.",
+      "items": [
+        { "id": "s1", "text": "A component in the segment throws during render" },
+        { "id": "s2", "text": "The nearest error.tsx renders with error and reset" },
+        { "id": "s3", "text": "The user clicks a button that calls reset()" },
+        { "id": "s4", "text": "The segment re-renders, attempting to recover" }
+      ],
+      "answer": ["s1", "s2", "s3", "s4"],
+      "explanation": "The error boundary catches the throw and renders error.tsx; calling reset() re-renders the segment to recover."
+    }
+  ]
+}
